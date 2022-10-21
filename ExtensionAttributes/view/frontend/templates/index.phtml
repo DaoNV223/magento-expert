@@ -1,0 +1,6 @@
+<?php
+    $customerRepository = \Magento\Framework\App\ObjectManager::getInstance()->create(\Magento\Customer\Api\CustomerRepositoryInterface::class);
+    $secondCustomer = $customerRepository->getById(2);
+    $extensionAttributes = $secondCustomer->getExtensionAttributes();
+?>
+<h1>Full Name: <?= $extensionAttributes->getFullName() ?></h1>
