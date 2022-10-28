@@ -1,0 +1,95 @@
+<div id="app">
+    <h1>{{ message }}</h1>
+    <h1 :class="titleClass">Make me red</h1>
+    <button v-on:click="increment">count is: {{ count }}</button>
+    <br><br>
+    <input v-model="text" placeholder="Type here">
+    <p>{{ text }}</p>
+    <button @click="toggle">toggle</button>
+    <h1 v-if="awesome">Vue is awesome!</h1>
+    <h1 v-else>Oh no 😢</h1>
+    <form @submit.prevent="addTodo">
+        <input v-model="newTodo">
+        <button>Add Todo</button>
+    </form>
+    <ul>
+        <li v-for="todo in filteredTodos" :key="todo.id">
+            <input type="checkbox" v-model="todo.done">
+            <span :class="{ done: todo.done }">{{ todo.text }}</span>
+            <button @click="removeTodo(todo)">X</button>
+        </li>
+    </ul>
+    <button @click="hideCompleted = !hideCompleted">
+        {{ hideCompleted ? 'Show all' : 'Hide completed' }}
+    </button>
+    <p ref="p">hello</p>
+    <child-comp :msg="greeting" @response="(msg) => childMsg = msg">
+        {{ msg }}
+    </child-comp>
+    <p>{{ childMsg }}</p>
+</div>
+
+<script>
+    require([
+        'DaoNguyen_VueJs/js/components/ChildComp',
+        'vueJs',
+    ], function (ChildComp) {
+        const { createApp } = Vue;
+        let id = 0;
+        createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    titleClass: 'title',
+                    count: 0,
+                    text: 'Default text',
+                    awesome: true,
+                    newTodo: '',
+                    todos: [
+                        { id: id++, text: 'Learn HTML', done: true },
+                        { id: id++, text: 'Learn JavaScript', done: true },
+                        { id: id++, text: 'Learn Vue', done: false }
+                    ],
+                    hideCompleted: false,
+                    greeting: 'Hello from parent',
+                    childMsg: 'No child msg yet',
+                    msg: 'from parent'
+                }
+            },
+            methods: {
+                increment() {
+                    this.count++;
+                },
+                toggle() {
+                    this.awesome = !this.awesome;
+                },
+                addTodo() {
+                    this.todos.push({ id: id++, text: this.newTodo, done: false });
+                    this.newTodo = '';
+                },
+                removeTodo(todo) {
+                    this.todos = this.todos.filter((t) => t !== todo)
+                }
+            },
+            computed: {
+                filteredTodos() {
+                    if (this.hideCompleted) {
+                        return this.todos.filter(todo => !todo.done);
+                    }
+                    return this.todos;
+                }
+            },
+            mounted() {
+                this.$refs.p.innerHTML = '123';
+            },
+            watch: {
+                count(newCount) {
+                    console.log(`new count is: ${newCount}`);
+                }
+            },
+            components: {
+                ChildComp
+            }
+        }).mount('#app');
+    });
+</script>
