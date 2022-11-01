@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="dao_nguyen" translate="label" sortOrder="9999999">
+            <label>Dao Nguyen</label>
+        </tab>
+        <section id="configuration" translate="label" type="text" showInDefault="1">
+            <label>Configuration</label>
+            <tab>dao_nguyen</tab>
+            <resource>Magento_Config::config_system</resource>
+            <group id="sensitive" translate="label" type="text" showInDefault="1">
+                <label>Sensitive Configuration</label>
+                <field id="facebook_link" translate="label" type="text" showInDefault="1">
+                    <label>Facebook Link</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
