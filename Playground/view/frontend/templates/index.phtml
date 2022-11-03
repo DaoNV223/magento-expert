@@ -1,1 +1,10 @@
 <h1>Hello World</h1>
+<?php
+    $person = \Magento\Framework\App\ObjectManager::getInstance()->create(\DaoNguyen\Playground\Model\Person::class);
+    $student = \Magento\Framework\App\ObjectManager::getInstance()->create(\DaoNguyen\Playground\Model\Student::class);
+    $employee = \Magento\Framework\App\ObjectManager::getInstance()->create(\DaoNguyen\Playground\Model\Employee::class);
+?>
+<h1><?= $person->getName() ?></h1>
+<h1><?= $student->getName() ?></h1>
+<h1><?= $employee->getName() ?></h1>
+
