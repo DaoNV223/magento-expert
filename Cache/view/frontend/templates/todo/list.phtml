@@ -1,0 +1,22 @@
+<?php
+use DaoNguyen\Cache\Block\TodoList;
+/** @var TodoList $block */
+$todoItems = $block->getTodoList();
+?>
+<h1>Hello World</h1>
+<ul>
+    <?php foreach ($todoItems as $item): ?>
+    <li><?= $item->getContent() ?></li>
+    <?php endforeach; ?>
+</ul>
+<form method="post" action="<?= $block->getUrl('cache/todo/save') ?>">
+    <label for="content"><span>Task</span></label>
+    <input type="text" id="content" name="content" data-validate="{required:true}">
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action save primary" title="Save">
+                <span>Save</span>
+            </button>
+        </div>
+    </div>
+</form>

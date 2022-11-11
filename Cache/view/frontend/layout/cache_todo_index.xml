@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="1column">
+    <head>
+        <title>Todo List</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+<!--            <block name="daonguyen.todo" template="DaoNguyen_Cache::todo/list.phtml" class="DaoNguyen\Cache\Block\TodoList" cacheable="false" />-->
+            <block name="daonguyen.todo" template="DaoNguyen_Cache::todo/list.phtml" class="DaoNguyen\Cache\Block\TodoList" />
+        </referenceContainer>
+    </body>
+</page>

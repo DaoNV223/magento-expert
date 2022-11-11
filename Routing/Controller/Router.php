@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace DaoNguyen\Routing\Controller;
 
-use DaoNguyen\Routing\Controller\Routing\Json;
 use DaoNguyen\Routing\Controller\Routing\Raw;
 use Magento\Framework\App\ActionFactory;
 use Magento\Framework\App\ActionInterface;

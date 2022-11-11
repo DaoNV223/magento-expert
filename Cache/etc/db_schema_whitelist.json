@@ -1,0 +1,12 @@
+{
+    "todo_items": {
+        "column": {
+            "id": true,
+            "value": true,
+            "content": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
