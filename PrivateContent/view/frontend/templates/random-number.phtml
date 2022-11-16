@@ -1,0 +1,18 @@
+<li data-bind="scope: 'random-number'">
+    <!-- ko if: randomNumber().value  -->
+        <span data-bind="text: randomNumber().value"></span>
+    <!-- /ko -->
+</li>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "random-number": {
+                        "component": "DaoNguyen_PrivateContent/js/random-number"
+                    }
+                }
+            }
+        }
+    }
+</script>

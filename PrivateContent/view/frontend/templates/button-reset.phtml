@@ -1,0 +1,26 @@
+<button id="send" type="button">Send a post request</button>
+<button id="invalidate" type="button">Invalidate</button>
+<button id="reload" type="button">Reload</button>
+<script>
+    require([
+        'jquery',
+        'Magento_Customer/js/customer-data'
+    ], function ($, customerData) {
+        $(function () {
+            $("#send").click(function () {
+                    $.post( "playground/privatecontent/index", function(data) {
+                        console.log(data);
+                    });
+                }
+            );
+            $("#invalidate").click(function () {
+                    customerData.invalidate(['random-number']);
+                }
+            );
+            $("#reload").click(function () {
+                    customerData.reload(['random-number'], true);
+                }
+            );
+        });
+    });
+</script>

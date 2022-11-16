@@ -3,11 +3,13 @@ declare(strict_types=1);
 
 namespace DaoNguyen\Cache\Controller\Index;
 
+use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\App\Action\Action;
 
-class Index implements HttpGetActionInterface
+class Index extends Action implements HttpGetActionInterface
 {
     /**
      * @var PageFactory
@@ -15,10 +17,12 @@ class Index implements HttpGetActionInterface
     private PageFactory $pageFactory;
 
     /**
+     * @param Context $context
      * @param PageFactory $pageFactory
      */
-    public function __construct(PageFactory $pageFactory)
+    public function __construct(Context $context, PageFactory $pageFactory)
     {
+        parent::__construct($context);
         $this->pageFactory = $pageFactory;
     }
 
@@ -29,6 +33,8 @@ class Index implements HttpGetActionInterface
      */
     public function execute(): ResultInterface
     {
-        return $this->pageFactory->create();
+        $page = $this->pageFactory->create();
+        $page->setHeader('Cache-Control', 'max-age=0, must-revalidate, no-cache, no-store', true);
+        return $page;
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="header.links">
+            <block template="DaoNguyen_PrivateContent::random-number.phtml" name="daonguyen.private.content" class="Magento\Customer\Block\Account\SortLink" before="customer"/>
+        </referenceBlock>
+        <referenceContainer name="header-wrapper">
+            <block template="DaoNguyen_PrivateContent::button-reset.phtml" name="daonguyen.button.reset" after="logo" before="minicart" />
+        </referenceContainer>
+    </body>
+</page>
