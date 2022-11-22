@@ -6,7 +6,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block name="daonguyen.cache" template="DaoNguyen_Cache::index.phtml" />
+            <block name="daonguyen.cache" template="DaoNguyen_Cache::index.phtml" class="DaoNguyen\Cache\Block\Index" />
         </referenceContainer>
     </body>
 </page>

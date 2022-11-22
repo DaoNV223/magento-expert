@@ -1,1 +1,6 @@
-<h1><span>Random number: </span><span><?= rand(1, 10) ?></span></h1>
+<?php
+/** @var Index $block */
+use DaoNguyen\Cache\Block\Index;
+
+?>
+<h1><span>Random number: </span><span><?= $block->getRandomNumber() ?></span></h1>

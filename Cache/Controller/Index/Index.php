@@ -34,7 +34,8 @@ class Index extends Action implements HttpGetActionInterface
     public function execute(): ResultInterface
     {
         $page = $this->pageFactory->create();
-        $page->setHeader('Cache-Control', 'max-age=0, must-revalidate, no-cache, no-store', true);
+        //$page->setHeader('Cache-Control', 'max-age=0, must-revalidate, no-cache, no-store', true);
+        //$this->getResponse()->setNoCacheHeaders();
         return $page;
     }
 }
