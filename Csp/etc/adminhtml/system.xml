@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="configuration">
+            <group id="csp_config" translate="label" type="text" showInDefault="1">
+                <label>Content Security Policies</label>
+                <field id="storefront" translate="label" type="select" showInDefault="1" canRestore="1">
+                    <label>Enable on the storefront</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>DaoNguyen\Csp\Model\Config\Backend\CspConfig</backend_model>
+                </field>
+                <field id="admin" translate="label" type="select" showInDefault="1" canRestore="1">
+                    <label>Enable on the backend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>DaoNguyen\Csp\Model\Config\Backend\CspConfig</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

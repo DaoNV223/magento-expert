@@ -3,6 +3,11 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="3columns">
     <head>
         <title>Csp</title>
-        <script src="https://cdn.jsdelivr.net/gh/daonv223/089ca9037e6b6ee10abd41227ba8e86a/script.js" src_type="url"/>
+        <script src="https://cdn.jsdelivr.net/gh/daonv223/magento-expert/Csp/view/frontend/web/js/script.js" src_type="url"/>
     </head>
+    <body>
+        <referenceContainer name="content">
+            <block name="daonguyen.csp" template="DaoNguyen_Csp::csp.phtml"/>
+        </referenceContainer>
+    </body>
 </page>

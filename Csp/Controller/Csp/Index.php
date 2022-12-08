@@ -2,11 +2,12 @@
 
 namespace DaoNguyen\Csp\Controller\Csp;
 
+use Magento\Csp\Api\CspAwareActionInterface;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Controller\ResultInterface;
 
-class Index implements HttpGetActionInterface
+class Index implements HttpGetActionInterface, CspAwareActionInterface
 {
     /**
      * @var PageFactory
@@ -29,5 +30,20 @@ class Index implements HttpGetActionInterface
     public function execute(): ResultInterface
     {
         return $this->pageFactory->create();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function modifyCsp(array $appliedPolicies): array
+    {
+        $appliedPolicies[] = new \Magento\Csp\Model\Policy\FetchPolicy(
+            'script-src',
+            false,
+            ['https://cdn.jsdelivr.net'],
+            ['https']
+        );
+
+        return $appliedPolicies;
     }
 }
