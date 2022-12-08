@@ -11,7 +11,7 @@
             <resource>Magento_Config::config_system</resource>
             <group id="sensitive" translate="label" type="text" showInDefault="1">
                 <label>Sensitive Configuration</label>
-                <field id="facebook_link" translate="label" type="text" showInDefault="1">
+                <field id="facebook_link" translate="label" type="text" showInDefault="1" canRestore="1">
                     <label>Facebook Link</label>
                 </field>
             </group>
