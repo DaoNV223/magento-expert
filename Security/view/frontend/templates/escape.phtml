@@ -1,0 +1,8 @@
+<?php
+$escape = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Framework\Escaper::class);
+$text = '<p>Hello</p>';
+?>
+<p>With escape:</p>
+<?= $escape->escapeHtml($text)?>
+<p>Without escape:</p>
+<?= $text ?>
