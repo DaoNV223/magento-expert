@@ -1,0 +1,26 @@
+<?php
+$productRepository = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Catalog\Api\ProductRepositoryInterface::class);
+/** @var \Magento\Catalog\Model\Product $product */
+$product = $productRepository->getById(1);
+/** @var \Magento\Catalog\Model\ResourceModel\Product $resource */
+$resource = $product->getResource();
+$resource->getAttribute()
+?>
+<table>
+    <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td><?= $product->getName() ?></td>
+    </tr>
+    <tr>
+        <td>sku</td>
+        <td><?= $product->getSku() ?></td>
+    </tr>
+    <tr>
+        <td>Clothing material</td>
+        <td><?= $product->getAttributeText('clothing_material') ?></td>
+    </tr>
+</table>

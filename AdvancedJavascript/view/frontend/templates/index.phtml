@@ -1,0 +1,42 @@
+<p>Requirejs</p>
+<!--<script type="text/javascript">-->
+<!--    requirejs(['DaoNguyen_AdvancedJavascript/example'], function (example) {-->
+<!--        alert("Loaded");-->
+<!--        console.log(example);-->
+<!--    });-->
+<!--</script>-->
+<!---->
+<!--<script type="text/javascript">-->
+<!--    requirejs(['DaoNguyen_AdvancedJavascript/example'], function (example) {-->
+<!--        alert("Loaded");-->
+<!--        console.log(example);-->
+<!--    });-->
+<!--</script>-->
+<div id="one" class="foo">
+    Hello World
+</div>
+<div id="two" class="foo">
+    Goodbye World
+</div>
+<div data-bind="scope: 'hello'">
+    <h1 data-bind="text: randomNumber"></h1>
+</div>
+<script type="text/x-magento-init">
+    {
+        ".foo": {
+            "DaoNguyen_AdvancedJavascript/example": {"config": "value"}
+        },
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "hello": {
+                        "component": "DaoNguyen_AdvancedJavascript/js/hello"
+                    }
+                }
+            }
+        }
+    }
+</script>
+<script type="text/javascript">
+    console.log('require js load after');
+</script>

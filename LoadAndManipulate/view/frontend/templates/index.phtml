@@ -1,0 +1,11 @@
+<?php
+
+use Magento\Catalog\Api\ProductRepositoryInterface;
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+/** @var ProductRepositoryInterface $productRepository */
+$productRepository = $objectManager->create(ProductRepositoryInterface::class);
+?>
+<h1>1. Load an object</h1>
+<p>Load product with id = 1 using product repository</p>
+<?= $productRepository->getById(1)->getName(); ?>
